@@ -25,7 +25,7 @@ page {
   width: 180rpx;
   border-radius: 50%;
   margin: 80rpx 30rpx;
-  border: #fff solid 3rpx;
+  border: #fff solid 5rpx;
   overflow: hidden;
 }
 .user-name {

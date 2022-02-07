@@ -5,14 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userInfo: null,
+    defaultImgSrc: '/img/defaultImg.png'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const user = wx.getStorageSync('user')
 
+    if (user) {
+      this.setData({
+        userInfo: user
+      })
+    }
   },
 
   /**
@@ -67,19 +74,29 @@ Page({
   login() {
 
     const userInfo = wx.getStorageSync('user')
-    console.log(userInfo)
 
-    console.log("用户点击登录")
+    if (!userInfo) {
+      wx.getUserProfile({
+        desc: "用于完善用户资料",
 
-    wx.getUserProfile({
-      desc: "用于完善用户资料",
+        success: res => {
+          console.log("获取用户信息成功", res)
+          const user = res.userInfo;
+          wx.setStorageSync('user', user)
+          this.setData({
+            userInfo: user
+          })
+        },
+        fail: err => {
+          console.log(err)
+        }
+      })
+    }else {
+      this.setData({
+        userInfo: userInfo
+      })
+    }
 
-      success: res => {
-        console.log(res)
-      },
-      fail: err => {
-        console.log(err)
-      }
-    })
+
   }
 })

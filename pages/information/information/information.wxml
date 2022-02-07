@@ -2,11 +2,12 @@
 <view>
   <view class="user-info">
     <view class="info">
-      <image class="user-img" src="/img/defaultImg.png"></image>
-      <text class="user-name">wangyuxuan</text>
+      <image class="user-img" src="{{userInfo?(userInfo.avatarUrl):(defaultImgSrc)}}"></image>
+      <text class="user-name">{{userInfo?(userInfo.nickName):'未登录'}}</text>
     </view>
-    <image class="vip" src="/img/vip.jpg">
-    </image>
+    <image wx:if="{{!userInfo}}" class="vip" src="/img/vip.jpg"></image>
+    <image wx:else class="vip" src="/img/vip1.jpg"> </image>
+
     <view class="fakeBtn" bindtap="login"></view>
 
     <!-- <view class="card">11</view> -->
