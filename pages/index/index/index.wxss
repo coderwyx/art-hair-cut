@@ -1,0 +1,9 @@
+/**index.wxss**/
+.banner {
+  height: 480rpx;
+  width: 750rpx;
+}
+.banner image {
+  height: 480rpx;
+  width: 100%;
+}

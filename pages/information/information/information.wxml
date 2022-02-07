@@ -1,0 +1,15 @@
+<!--pages/information/information.wxml-->
+<view>
+  <view class="user-info">
+    <view class="info">
+      <image class="user-img" src="/img/defaultImg.png"></image>
+      <text class="user-name">wangyuxuan</text>
+    </view>
+    <image class="vip" src="/img/vip.jpg">
+    </image>
+    <view class="fakeBtn" bindtap="login"></view>
+
+    <!-- <view class="card">11</view> -->
+
+  </view>
+</view>

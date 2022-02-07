@@ -1,0 +1,34 @@
+{
+  "pages": [
+    "pages/index/index/index",
+    "pages/logs/logs",
+    "pages/discovery/discovery/discovery",
+    "pages/information/information/information"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "艺剪",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index/index",
+        "text": "剪发"
+      },
+      {
+        "pagePath": "pages/discovery/discovery/discovery",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/information/information/information",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
