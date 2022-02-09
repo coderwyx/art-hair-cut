@@ -4,7 +4,8 @@
         "pages/logs/logs",
         "pages/discovery/discovery/discovery",
         "pages/information/information/information",
-        "pages/order/order/order"
+        "pages/order/order/order",
+        "pages/information/order/order"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -20,9 +21,9 @@
                 "text": "剪发"
             },
             {
-              "pagePath": "pages/order/order/order",
-              "text": "预约"
-          },
+                "pagePath": "pages/order/order/order",
+                "text": "预约"
+            },
             {
                 "pagePath": "pages/discovery/discovery/discovery",
                 "text": "发现"

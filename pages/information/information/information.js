@@ -6,7 +6,28 @@ Page({
    */
   data: {
     userInfo: null,
-    defaultImgSrc: '/img/defaultImg.png'
+    defaultImgSrc: '/img/defaultImg.png',
+    moneyData: {
+      money: 3.12,
+      coupons: 0,
+      integral: 251
+    },
+    orderStatus: [{
+      icon: 'icon-daifukuan',
+      state: '待付款',
+    }, {
+      icon: 'icon-xiaofei',
+      state: '待消费'
+    }, {
+      icon: 'icon-31daifahuo',
+      state: '待发货'
+    }, {
+      icon: 'icon-31daishouhuo',
+      state: '待收货'
+    }, {
+      icon: 'icon-daipingjia',
+      state: '待评价'
+    }]
   },
 
   /**
@@ -91,12 +112,18 @@ Page({
           console.log(err)
         }
       })
-    }else {
+    } else {
       this.setData({
         userInfo: userInfo
       })
     }
 
 
+  },
+
+  checkOrder() {
+    wx.navigateTo({
+      url: '/pages/information/order/order',
+    })
   }
 })

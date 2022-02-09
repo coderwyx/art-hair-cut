@@ -1,16 +1,57 @@
 <!--pages/information/information.wxml-->
-<view>
   <view class="user-info">
     <view class="info">
       <image class="user-img" src="{{userInfo?(userInfo.avatarUrl):(defaultImgSrc)}}"></image>
       <text class="user-name">{{userInfo?(userInfo.nickName):'未登录'}}</text>
     </view>
-    <image wx:if="{{!userInfo}}" class="vip" src="/img/vip.jpg"></image>
-    <image wx:else class="vip" src="/img/vip1.jpg"> </image>
+    <view class="vip">
+      <image wx:if="{{!userInfo}}" class="vip" src="/img/vip.jpg"></image>
+      <image wx:else class="vip" src="/img/vip1.jpg"> </image>
 
-    <view class="fakeBtn" bindtap="login"></view>
+      <view class="fakeBtn" bindtap="login"></view>
+    </view>
+    <view class="money-bar">
+      <view class="money-bar-item">
+        <text>{{userInfo?(moneyData.money):'--'}}</text>
+        <text>总余额(元)</text>
+      </view>
+      <view class="money-bar-item">
+        <text>{{userInfo?(moneyData.coupons):'--'}}</text>
+        <text>优惠券</text>
+      </view>
+      <view class="money-bar-item">
+        <text>{{userInfo?(moneyData.integral):'--'}}</text>
+        <text>积分</text>
+      </view>
+    </view>
 
-    <!-- <view class="card">11</view> -->
+    <view class="order-bar">
+      <view class="all" bindtap="checkOrder">
+        <text>订单</text>
+        <view>查看全部 <text class="iconfont icon-xiangyou1"></text></view>
+      </view>
+      <view class="order-status">
+        <view class="order-status-item" wx:for="{{orderStatus}}" wx:key="index">
+          <text class='iconfont {{item.icon}}'></text>
+          <text>{{item.state}}</text>
+        </view>
+      </view>
+    </view>
 
+    <view class="appointment-bar">
+      <view>预约</view>
+      <view class="iconfont icon-xiangyou1"></view>
+    </view>
+
+    <view class="service-bar">
+      <view class="service-bar-item">
+        <view class="iconfont icon-lianxing"></view>
+        脸型识别
+      </view>
+      <view class="service-bar-item">
+        <view class="iconfont icon-31gouwuche"></view>
+
+        购物车
+      </view>
+    </view>
   </view>
-</view>
