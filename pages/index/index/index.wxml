@@ -18,4 +18,7 @@
       <image src="/img/banner03.png"></image>
     </swiper-item>
   </swiper>
+  <view class="main">
+    <image src="/img/index.jpg"></image>
+  </view>
 </view>

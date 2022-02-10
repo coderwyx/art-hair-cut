@@ -5,7 +5,8 @@
         "pages/discovery/discovery/discovery",
         "pages/information/information/information",
         "pages/order/order/order",
-        "pages/information/order/order"
+        "pages/information/order/order",
+        "pages/discovery/discoveryInfo/discoveryInfo"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -18,7 +19,7 @@
         "list": [
             {
                 "pagePath": "pages/index/index/index",
-                "text": "剪发"
+                "text": "首页"
             },
             {
                 "pagePath": "pages/order/order/order",
@@ -34,7 +35,12 @@
             }
         ]
     },
-    "style": "v2",
     "sitemapLocation": "sitemap.json",
-    "lazyCodeLoading": "requiredComponents"
+    "lazyCodeLoading": "requiredComponents",
+    "usingComponents": {
+        "van-button": "@vant/weapp/button/index",
+        "van-tab": "@vant/weapp/tab/index",
+        "van-tabs": "@vant/weapp/tabs/index",
+        "van-search": "@vant/weapp/search/index"
+    }
 }

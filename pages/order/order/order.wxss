@@ -1,1 +1,72 @@
 /* pages/order/order/order.wxss */
+page {
+    background-color: #f2f3f5;
+
+}
+
+.appointment {
+    position: relative;
+}
+
+.banner {
+    width: 100%;
+    margin-bottom: 30rpx;
+}
+
+.store-information {
+    position: absolute;
+    left: 50rpx;
+    top: 290rpx;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    width: 650rpx;
+}
+
+.address {
+    display: flex;
+    flex-direction: column;
+}
+
+.address text {
+    margin: 15rpx;
+    font-size: 30rpx;
+}
+
+.phone {
+    height: 70rpx;
+    width: 70rpx;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+    margin: auto 0;
+}
+
+.phone text {
+    font-size: 60rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.barber {
+    display: flex;
+    border-radius: 30rpx;
+    margin: 15rpx 30rpx;
+    padding: 15rpx;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+}
+.barber-avatar {
+    height: 160rpx;
+    width: 160rpx;
+    border-radius: 50%;
+    margin-right: 50rpx;
+}
+.barber-information {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

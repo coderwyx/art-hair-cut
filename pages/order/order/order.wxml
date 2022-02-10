@@ -1,2 +1,23 @@
 <!--pages/order/order/order.wxml-->
-<text>pages/order/order/order.wxml</text>
+<view class="appointment">
+    <image class="banner" src="/img/appointment-banner.png"></image>
+    <view class="store-information">
+        <view class="address">
+            <text>营业时间：周一至周日 11:00~21:00</text>
+            <text>地址：广东科技学院</text>
+        </view>
+        <view class="phone">
+            <text class="iconfont icon-24gf-telephone"></text>
+        </view>
+    </view>
+
+    <view class="barber">
+        <view class="barber-information">
+            <image class="barber-avatar" src="/img/barber.jpg"></image>
+
+            <text class="barber-name">花园宝宝</text>
+        </view>
+        <van-button class="barber-btn" round color="#403737">预约</van-button>
+    </view>
+
+</view>

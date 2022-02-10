@@ -1,4 +1,6 @@
 // pages/order/order/order.js
+import HTTP from '../../../utils/requestFn/api'
+
 Page({
 
     /**
@@ -12,7 +14,13 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        HTTP.loginApi({
+            code: 520520520
+        }).then(res => {
+            console.log(res)
+        }).catch(err => {
+            console.log(err)
+        })
     },
 
     /**

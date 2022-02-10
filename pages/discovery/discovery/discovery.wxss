@@ -1,1 +1,37 @@
 /* pages/discovery/discovery.wxss */
+page {
+    background-color: #f2f3f5;
+
+}
+
+.product {
+    width: 100%;
+    display: flex;
+}
+
+.product-item {
+    width: 50%;
+    height: 460rpx;
+    margin: 20rpx 15rpx;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.product-img {
+    width: 100%;
+    height: 80%;
+}
+
+.product-item text {
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+.product-item text:nth-child(3) {
+    color: red;
+    font-weight: bold;
+}

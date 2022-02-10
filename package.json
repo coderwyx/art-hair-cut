@@ -1,0 +1,23 @@
+{
+  "name": "art-hair-cut",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderwyx/art-hair-cut.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coderwyx/art-hair-cut/issues"
+  },
+  "homepage": "https://github.com/coderwyx/art-hair-cut#readme",
+  "description": "",
+  "dependencies": {
+    "@vant/weapp": "^1.10.2"
+  }
+}
