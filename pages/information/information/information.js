@@ -1,4 +1,7 @@
 // pages/information/information.js
+import HTTP from '../../../utils/requestFn/api'
+
+const app = getApp()
 Page({
 
   /**
@@ -8,9 +11,9 @@ Page({
     userInfo: null,
     defaultImgSrc: '/img/defaultImg.png',
     moneyData: {
-      money: 3.12,
+      money: 0.00,
       coupons: 0,
-      integral: 251
+      integral: 50
     },
     orderStatus: [{
       icon: 'icon-daifukuan',
@@ -103,10 +106,55 @@ Page({
         success: res => {
           console.log("获取用户信息成功", res)
           const user = res.userInfo;
+          // 登录
+          wx.login({
+            success: res => {
+              // 发送 res.code 到后台换取 openId, sessionKey, unionId
+              console.log(res)
+              if (res.code) {
+                wx.request({
+                  url: 'http://35807s79k5.qicp.vip/wx/user/wx30979db1068ab70f/login',
+                  data: {
+                    code: res.code
+                  },
+                  success(res) {
+                    const openid = res.data.openid
+                    console.log("获取用户openid成功", openid)
+                    wx.setStorageSync('openid', openid)
+                    if (res.data.auth === 'yes') {
+                      wx.setStorageSync('userid', res.data.id)
+                      app.globalData.userid = res.data.id || ''
+                      console.log("获取到userid", app.globalData.userid)
+                    } else if (res.data.auth === 'no') {
+
+                      HTTP.loginApi({
+                        nickName: user.nickName,
+                        openid: openid
+                      }).then(res => {
+                        wx.setStorageSync('userid', res.data.id)
+                        app.globalData.userid = res.data.id || '',
+                          console.log("获取到userid", app.globalData.userid)
+
+                      }).catch(err => {
+                        console.log(err)
+                      })
+                    }
+                  },
+                  fail(err) {
+                    console.error("获取用户openid失败", err)
+                  }
+                })
+              } else {
+                console.error("登录失败" + res.errMsg)
+              }
+            }
+          });
+
           wx.setStorageSync('user', user)
           this.setData({
             userInfo: user
           })
+
         },
         fail: err => {
           console.log(err)
@@ -125,5 +173,21 @@ Page({
     wx.navigateTo({
       url: '/pages/information/order/order',
     })
+  },
+
+  goInfo() {
+    wx.navigateTo({
+      url: '../userInfo/userInfo',
+    })
+  },
+  toShoppingCart() {
+    wx.navigateTo({
+      url: '../shoppingCart/shoppingCart',
+    })
+  },
+  appointment() {
+      wx.navigateTo({
+        url: '../appointment/appointment',
+      })
   }
 })

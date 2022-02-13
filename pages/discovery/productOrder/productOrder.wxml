@@ -1,0 +1,9 @@
+<!--pages/discovery/productOrder/productOrder.wxml-->
+<view>
+    <van-card num="{{count}}" price="{{orderInfo.price}}" title="{{orderInfo.name}}" thumb="{{ orderInfo.img }}" />
+    <view style="display: flex;justify-content: space-between;padding: 20rpx 30rpx;">
+        <text>配送方式</text>
+        <text>到店取货</text>
+    </view>
+    <van-submit-bar price="{{ total }}" button-text="提交订单" bind:submit="onSubmit" />
+</view>

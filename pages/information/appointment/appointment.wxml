@@ -1,0 +1,8 @@
+<!--pages/information/appointment/appointment.wxml-->
+<view>
+    <view wx:key="index" wx:for="{{appointmentList}}">
+        <text>理发师id:{{item.hairdresserId}}</text>
+        <text>价格：{{item.money}}</text>
+    </view>
+
+</view>

@@ -1,0 +1,14 @@
+/* pages/information/shoppingCart/shoppingCart.wxss */
+.cart-item {
+    display: flex;
+    align-content: center;
+}
+.card {
+    flex: 1;
+}
+.checkbox {
+    width: 80rpx;
+    display: flex;
+    margin-left: 35rpx;
+    text-align: center;
+}

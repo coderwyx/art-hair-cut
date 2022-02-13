@@ -1,0 +1,54 @@
+/* pages/order/barberInfo/barberInfo.wxss */
+page {
+    background-color: #f2f3f5;
+}
+.barberInfo {
+    width: 100%;
+}
+.barberInfo-foot {
+    height: 120rpx;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0rpx 30rpx;
+    font-size: 40rpx;
+    box-sizing: border-box;
+    line-height: 120rpx;
+    position: fixed;
+    color: red;
+    bottom: 0rpx;
+    left: 0rpx;
+}
+
+.barberBgc {
+    width: 100%;
+    height: 700rpx;
+}
+
+.worksTab {
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 36rpx;
+    margin-top: 15rpx;
+}
+
+.instructions {
+    display: flex;
+    flex-direction: column;
+    margin: 0 30rpx;
+    position: absolute;
+    left: 0;
+    top: 560rpx;
+}
+.fakeBtn {
+    background-color: #403737;
+    font-size: 32rpx;
+    color: #fff;
+    width: 160rpx;
+    border-radius: 15rpx;
+    line-height: 100rpx;
+    margin: 10rpx 0;
+}

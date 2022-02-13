@@ -1,7 +1,5 @@
 const app = getApp();
-console.log(app)
 const baseURL = app.globalData.baseURL;
-
 const Request = function (options) {
     return new Promise((resolve, reject) => {
         wx.request({

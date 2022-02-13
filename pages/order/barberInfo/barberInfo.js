@@ -1,20 +1,31 @@
-// pages/order/order/order.js
+// pages/order/barberInfo/barberInfo.js
 import HTTP from '../../../utils/requestFn/api'
-
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        barberList: []
+        barberInfo: {
+
+        }
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.getBarberList()
+        console.log(options)
+        HTTP.getBaeberInfo(
+            options.id
+        ).then(res => {
+            console.log("获取理发师信息成功", res)
+            this.setData({
+                barberInfo: res
+            })
+        }).catch(err => {
+            console.log("获取理发师信息失败", err)
+        })
     },
 
     /**
@@ -65,57 +76,30 @@ Page({
     onShareAppMessage: function () {
 
     },
-
-    makePhone() {
-        wx.makePhoneCall({
-            phoneNumber: '1234567890', //仅为示例，并非真实的电话号码
-            success() {
-                console.log('接口调用成功的回调函数')
-            },
-            fail() {
-                console.log('接口调用失败的回调函数')
-            },
-            complete() {
-                console.log('接口调用结束的回调函数（调用成功、失败都会执行）')
-            }
-        })
-
-    },
-
-    toBarberInfo(e) {
-        const id = e.currentTarget.dataset.id
-        wx.navigateTo({
-            url: '../barberInfo/barberInfo?id=' + id,
-        })
-    },
     appointment(e) {
-        const id = e.currentTarget.dataset.id
+        const id = this.data.barberInfo.id
         const userid = wx.getStorageSync('userid')
 
         HTTP.appointmentBarber({
             userId: userid,
             hairdresserId: id
         }).then(res => {
+            console.log(res)
             wx.showToast({
                 title: res,
-            })
-            this.getBarberList()
+            });
+        
+            setTimeout(function () {
+                wx.navigateBack({
+                    delta: 1,
+                })
+            }, 1500)
+
+
         }).catch(err => {
             wx.showToast({
                 title: err,
             })
-            this.getBarberList()
         })
     },
-    getBarberList() {
-        HTTP.getBarberList().then(res => {
-            console.log(res)
-            const barberList = res.data;
-            this.setData({
-                barberList: barberList
-            })
-        }).catch(err => {
-            console.log("获取理发师列表失败", err)
-        })
-    }
 })

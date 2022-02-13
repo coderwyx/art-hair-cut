@@ -1,0 +1,16 @@
+<!--pages/order/barberInfo/barberInfo.wxml-->
+
+<view class="barberInfo">
+        <image class="barberBgc" src="/img/barber.jpg"></image>
+        <view class="instructions">
+            <view style="font-size: 56rpx; font-weight: bold;margin-bottom: 15rpx;">{{barberInfo.name}}<van-tag style="margin-left: 15rpx;" type="primary">{{barberInfo.position}}</van-tag></view>
+            <text style="font-size: 32rpx;">简介：{{barberInfo.introduce}}</text>
+        </view>
+    <view class="worksTab">
+        作品案例
+    </view>
+    <view class="barberInfo-foot">
+        <text>￥{{barberInfo.price}}</text>
+        <view class="fakeBtn" bindtap="appointment">预约</view>
+    </view>
+</view>

@@ -1,0 +1,20 @@
+<view class="info">
+  <view class="name">
+    <text>姓名</text>
+    <input bindinput="getName" model:value="{{name}}" placeholder="请填写名字" />
+  </view>
+  <view class="phone">
+    <text>手机号</text>
+    <input bindinput="getPhone" model:value="{{phone}}" placeholder="请填写手机号"></input>
+  </view>
+
+  <picker name="genderPicker" value='{{genderindex}}' range="{{genderArray}}" bindchange="bindGenderChange">
+    <view class="gender" style="display:flex;justify-content: space-between;">
+      <text>性别</text>
+      <view>{{gender}} ></view>
+    </view>
+  </picker>
+
+
+</view>
+<button bindtap="changeInfo" type="primary">保存</button>

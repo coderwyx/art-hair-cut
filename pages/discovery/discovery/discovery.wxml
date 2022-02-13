@@ -1,16 +1,22 @@
 <!--pages/discovery/discovery.wxml-->
 <view>
-    <van-search shape="round" input-align="center" value="{{ value }}" placeholder="输入关键词搜索" />
-    <view class="product">
-        <view class="product-item">
+    <van-search shape="round" input-align="center" bind:search="onSearch" model:value="{{ value }}" placeholder="输入关键词搜索" />
+    <view class="nothing" wx:if="{{productList.length===0}}">暂无产品~</view>
+    <view wx:else class="product">
+        <view wx:key="id" wx:for="{{productList}}" class="product-item" data-id="{{item.id}}" bindtap="toDiscoverInfo">
             <image class="product-img" src="/img/fala.jpg"></image>
-            <text>霹雳发蜡</text>
-            <text>￥159.00</text>
+            <text>{{item.name}}</text>
+            <text>￥{{item.price}}</text>
+        </view>
+        <!-- <view class="product-item">
+            <image class="product-img" src="/img/fajiao.jpg"></image>
+            <text title="11">霹雳发胶</text>
+            <text>￥168.00</text>
         </view>
         <view class="product-item">
             <image class="product-img" src="/img/fajiao.jpg"></image>
             <text title="11">霹雳发胶</text>
             <text>￥168.00</text>
-        </view>
+        </view> -->
     </view>
 </view>

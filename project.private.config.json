@@ -29,6 +29,41 @@
                     "name": "",
                     "pathName": "pages/discovery/discovery/discovery",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/order/barberInfo/barberInfo",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/discovery/discoveryInfo/discoveryInfo",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/discovery/discoveryInfo/discoveryInfo",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/information/shoppingCart/shoppingCart",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/discovery/productOrder/productOrder",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }

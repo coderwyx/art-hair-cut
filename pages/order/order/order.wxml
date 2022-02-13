@@ -6,18 +6,22 @@
             <text>营业时间：周一至周日 11:00~21:00</text>
             <text>地址：广东科技学院</text>
         </view>
-        <view class="phone">
+        <view class="phone" bindtap="makePhone">
             <text class="iconfont icon-24gf-telephone"></text>
         </view>
     </view>
 
-    <view class="barber">
-        <view class="barber-information">
+    <view wx:for="{{barberList}}" wx:key='id' class="barber">
+        <view class="barber-information" data-id="{{item.id}}" bindtap="toBarberInfo">
             <image class="barber-avatar" src="/img/barber.jpg"></image>
 
-            <text class="barber-name">花园宝宝</text>
+            <text class="barber-name">{{item.name}}</text>
         </view>
-        <van-button class="barber-btn" round color="#403737">预约</van-button>
+        <view style="display: flex; flex-direction: column;">
+            <van-button class="barber-btn" data-id="{{item.id}}" bindtap="appointment" round color="#403737">预约</van-button>
+            <text style="font-size: 24rpx;margin-top: 10rpx;">剩余可预约1</text>
+        </view>
+
     </view>
 
 </view>

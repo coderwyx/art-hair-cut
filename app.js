@@ -7,23 +7,6 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        console.log(res)
-        if (res.code) {
-          wx.request({
-            url: 'http://35807s79k5.qicp.vip/wx/user/wx30979db1068ab70f/login',
-            data: {
-              code: res.code
-            }
-          })
-        } else {
-          console.error("登录失败" + res.errMsg)
-        }
-      }
-    });
 
     //获取用户信息
     // wx.getUserProfile({
@@ -38,6 +21,9 @@ App({
   },
   globalData: {
     userInfo: null,
-    baseURL: 'http://35807s79k5.qicp.vip'
+    baseURL: 'http://35807s79k5.qicp.vip',
+    appid: 'wx30979db1068ab70f',
+    userid: "1492059997588766722",
+    shoppingCartList: []
   }
 })

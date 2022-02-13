@@ -1,0 +1,14 @@
+<!--pages/information/shoppingCart/shoppingCart.wxml-->
+<view>
+    <view wx:for="{{shoppingCartList}}" wx:key="id" class="cart-item">
+        <van-checkbox class="checkbox" value="{{ item.isCheck }}" data-index="{{index}}" bind:change="onCheckboxChange"></van-checkbox>
+        <van-card class="card" price="{{item.price}}" title="{{item.name}}" thumb="{{ item.img }}">
+            <view slot="num" style="float: right;">
+                
+                <van-stepper value="{{ item.count }}" min="0" data-index="{{index}}" bind:change="onStepperChange" />
+            </view>
+        </van-card>
+    </view>
+
+    <van-submit-bar price="{{ total }}" button-text="提交订单" bind:submit="onSubmit" />
+</view>

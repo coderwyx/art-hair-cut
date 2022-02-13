@@ -1,18 +1,21 @@
 // pages/discovery/discovery.js
+import HTTP from '../../../utils/requestFn/api'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    value: "",
+    productList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getProductList()
   },
 
   /**
@@ -62,5 +65,38 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  toDiscoverInfo(e) {
+    console.log(e)
+    const id = e.currentTarget.dataset.id
+    console.log(id)
+    wx.navigateTo({
+      url: '../discoveryInfo/discoveryInfo?id=' + id,
+    })
+  },
+  getProductList() {
+    HTTP.getProductList().then(res => {
+      const productList = res.data
+      this.setData({
+        productList: productList
+      })
+    }).catch(err => {
+      console.log(err)
+
+    })
+  },
+  onSearch() {
+    const name = this.data.value
+    console.log(name)
+    HTTP.seachProduct({
+      name: name
+    }).then(res => {
+      console.log("搜索产品成功", res)
+      this.setData({
+        productList: res.data
+      })
+    }).catch(err => {
+      console.log(err)
+    })
   }
 })

@@ -1,4 +1,35 @@
 <view>
-    <image></image>
-    
+    <van-overlay show="{{ show }}" bindtap="onClickHide">
+        <view class="wrapper">
+            <view class="count" catchtap="cancerEven">
+                <text>购买数量:</text>
+                <van-stepper integer min="1" max="{{productInfo.stock}}" value="{{1}}" bind:change="onChange" />
+            </view>
+            <view bindtap="{{type==0?'addProduct':'buyNow'}}" style="background-color: #403737;color: #fff;text-align: center;line-height: 100rpx;height: 100rpx;">{{type==0? '加入购物车':'立即购买'}}</view>
+
+        </view>
+    </van-overlay>
+    <image class="product-img" src="/img/fala.jpg"></image>
+    <view class="product-info">
+        <text style="font-size: 56rpx;color: red;margin-bottom: 10rpx;">￥{{productInfo.price}}</text>
+        <text style="font-size: 40rpx; margin-bottom: 10rpx;">{{productInfo.name}}</text>
+        <van-tag type="primary">正品保障</van-tag>
+    </view>
+    <view class="inventory">
+        <text>到店取货</text>
+        <text>库存{{productInfo.stock}}</text>
+
+    </view>
+    <view class="product-bottom">
+        <view style="display: flex; flex-direction: column; width: 20%;" bindtap="toShoppingCart">
+            <text style="font-size: 46rpx;" class="iconfont icon-31gouwuche"></text>
+            <text>购物车</text>
+        </view>
+        <view style="display: flex; flex-direction: column; width: 20%;" bindtap="toShop">
+            <text style="font-size: 46rpx;" class="iconfont icon-dianpu"></text>
+            <text>进入店铺</text>
+        </view>
+        <view style="width: 30%; background-color: orange;height: 100%;line-height: 100rpx;" data-id="0" bindtap="onClickShow">加入购物车</view>
+        <view style="width: 30%;background-color: #403737;height: 100%;line-height: 100rpx;color: #fff;" data-id="1" bindtap="onClickShow">立即购买</view>
+    </view>
 </view>
