@@ -9,7 +9,7 @@
 
         </view>
     </van-overlay>
-    <image class="product-img" src="/img/fala.jpg"></image>
+    <image class="product-img" src="{{productInfo.pic}}"></image>
     <view class="product-info">
         <text style="font-size: 56rpx;color: red;margin-bottom: 10rpx;">￥{{productInfo.price}}</text>
         <text style="font-size: 40rpx; margin-bottom: 10rpx;">{{productInfo.name}}</text>

@@ -1,0 +1,16 @@
+<view>
+    <van-overlay show="{{ show }}" bind:click="onClickHide">
+        <view class="wrapper">
+            <van-datetime-picker style="position: fixed;bottom: 0;width: 100%;" type="datetime" value="{{ currentDate }}" min-date="{{ minDate }}" max-date="{{ maxDate }}" bind:confirm="confirm" bind:cancel="cancel" bind:input="onInput" />
+        </view>
+    </van-overlay>
+    <view class="remind-item" wx:for="{{remindList}}" wx:key="index">
+        <van-card desc="状态：{{item.status==='1'?'已完成':'未完成'}}" title="{{item.sendTime}}">
+            <view slot="footer">
+                <van-button bindtap="delRemind" data-remindId="{{item.id}}" size="mini">删除任务</van-button>
+            </view>
+        </van-card>
+    </view>
+    <view bindtap="show" class="fakeBtn">设置定时任务</view>
+    <view style="height: 100rpx;"></view>
+</view>

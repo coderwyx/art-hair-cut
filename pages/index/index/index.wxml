@@ -9,16 +9,16 @@
           interval="3500" 
           circular>
     <swiper-item>
-      <image src="/img/banner01.png"></image>
+      <image src="https://my-study-test-bucket1234.oss-cn-guangzhou.aliyuncs.com/images/2022/02/16/7cd01cb5-d1dc-4866-9014-69b3cdb3ef0d.png"></image>
     </swiper-item>
     <swiper-item>
-      <image src="/img/banner02.png"></image>
+      <image src="https://my-study-test-bucket1234.oss-cn-guangzhou.aliyuncs.com/images/2022/02/16/81205749-c167-4679-b540-efe447980424.png"></image>
     </swiper-item>
     <swiper-item>
-      <image src="/img/banner03.png"></image>
+      <image src="https://my-study-test-bucket1234.oss-cn-guangzhou.aliyuncs.com/images/2022/02/16/956f9469-4604-487a-a221-8958d0cc7f96.png"></image>
     </swiper-item>
   </swiper>
   <view class="main">
-    <image src="/img/index.jpg"></image>
+    <image src="https://my-study-test-bucket1234.oss-cn-guangzhou.aliyuncs.com/images/2022/02/16/8dc4215e-5469-4a08-97b3-4a7e75f71953.png"></image>
   </view>
 </view>

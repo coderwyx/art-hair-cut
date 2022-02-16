@@ -1,14 +1,29 @@
 <!--pages/information/shoppingCart/shoppingCart.wxml-->
+
 <view>
+    <van-overlay z-index="999" show="{{ show }}" bind:click="onClickHide">
+        <view class="wrapper">
+            <view style="position: fixed; bottom: 0;box-sizing: border-box;">
+                <view class="pay">
+                    <text>微信支付</text>
+
+                    <text>{{total/100}}元</text>
+                </view>
+
+                <button type="primary" bindtap="pay" style="width:750rpx">确认支付</button>
+            </view>
+
+        </view>
+    </van-overlay>
     <view wx:for="{{shoppingCartList}}" wx:key="id" class="cart-item">
         <van-checkbox class="checkbox" value="{{ item.isCheck }}" data-index="{{index}}" bind:change="onCheckboxChange"></van-checkbox>
-        <van-card class="card" price="{{item.price}}" title="{{item.name}}" thumb="{{ item.img }}">
+        <van-card class="card" price="{{item.price}}" title="{{item.name}}" thumb="{{ item.pic }}">
             <view slot="num" style="float: right;">
-                
+
                 <van-stepper value="{{ item.count }}" min="0" data-index="{{index}}" bind:change="onStepperChange" />
             </view>
         </van-card>
     </view>
 
-    <van-submit-bar price="{{ total }}" button-text="提交订单" bind:submit="onSubmit" />
+    <van-submit-bar style="z-index: 99;" price="{{ total }}" button-text="提交订单" bind:submit="onSubmit" />
 </view>

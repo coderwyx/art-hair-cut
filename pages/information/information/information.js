@@ -20,7 +20,7 @@ Page({
       state: '待付款',
     }, {
       icon: 'icon-xiaofei',
-      state: '待消费'
+      state: '已付款'
     }, {
       icon: 'icon-31daifahuo',
       state: '待发货'
@@ -170,6 +170,13 @@ Page({
   },
 
   checkOrder() {
+    const userid = wx.getStorageSync('userid')
+    if (!userid) {
+      return wx.showToast({
+        title: '请登录后查看',
+        icon: 'error'
+      })
+    }
     wx.navigateTo({
       url: '/pages/information/order/order',
     })
@@ -186,8 +193,62 @@ Page({
     })
   },
   appointment() {
-      wx.navigateTo({
-        url: '../appointment/appointment',
+    const userid = wx.getStorageSync('userid')
+    if (!userid) {
+      return wx.showToast({
+        title: '请登录后查看',
+        icon: 'error'
       })
+    }
+    wx.navigateTo({
+      url: '../appointment/appointment',
+    })
+  },
+  setReminded() {
+    wx.navigateTo({
+      url: '../remind/remind',
+    })
+    // const userid = wx.getStorageSync('userid')
+    // HTTP.setRemind(userid, {
+    //   day: 0,
+    //   hour: 0,
+    //   minute: 0,
+    //   second: 1
+    // }).then(res => {
+    //   console.log("设置周期提醒成功", res)
+    // }).catch(err => {
+    //   console.log(err)
+    // })
+  },
+  face() {
+    wx.chooseImage({
+      success(res) {
+        const tempFilePaths = res.tempFilePaths
+        console.log(tempFilePaths[0])
+        wx.uploadFile({
+          url: 'http://35807s79k5.qicp.vip/face/shape',
+          filePath: tempFilePaths[0],
+          header: {
+            'content-type': 'multipart/form-data'
+          },
+          name: 'image',
+          success(res) {
+            // const data = res.data
+            console.log(res)
+            if(res.data==='pic not has face'){
+              return wx.showToast({
+                icon: 'error',
+                title: '请上传正面照片',
+              })
+            }
+            wx.showToast({
+              icon: 'none',
+              title: '你的脸型是' + res.data,
+            })
+            //do something
+          }
+        })
+      }
+    })
   }
 })

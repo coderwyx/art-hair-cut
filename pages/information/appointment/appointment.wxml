@@ -1,8 +1,11 @@
 <!--pages/information/appointment/appointment.wxml-->
 <view>
-    <view wx:key="index" wx:for="{{appointmentList}}">
-        <text>理发师id:{{item.hairdresserId}}</text>
-        <text>价格：{{item.money}}</text>
+    <view class="appointment-item" wx:key="index" wx:for="{{appointmentList}}">
+        <van-card desc="状态：{{item.isComplete===0?'未完成':'已完成'}}" price="{{item.money}}" title="理发师：{{item.hairdresser.name}}">
+            <!-- <view slot="footer">
+                <van-button bindtap="cancerOrder" data-orderId="{{item.id}}" size="mini">取消订单</van-button>
+            </view> -->
+        </van-card>
     </view>
 
 </view>

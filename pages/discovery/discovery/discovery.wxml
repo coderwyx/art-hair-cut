@@ -4,7 +4,7 @@
     <view class="nothing" wx:if="{{productList.length===0}}">暂无产品~</view>
     <view wx:else class="product">
         <view wx:key="id" wx:for="{{productList}}" class="product-item" data-id="{{item.id}}" bindtap="toDiscoverInfo">
-            <image class="product-img" src="/img/fala.jpg"></image>
+            <image class="product-img" src="{{item.pic}}"></image>
             <text>{{item.name}}</text>
             <text>￥{{item.price}}</text>
         </view>

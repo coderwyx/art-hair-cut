@@ -23,7 +23,7 @@ App({
     userInfo: null,
     baseURL: 'http://35807s79k5.qicp.vip',
     appid: 'wx30979db1068ab70f',
-    userid: "1492059997588766722",
+    userid: "",
     shoppingCartList: []
   }
 })

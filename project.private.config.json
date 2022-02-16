@@ -64,6 +64,27 @@
                     "name": "",
                     "pathName": "pages/discovery/productOrder/productOrder",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/information/order/order",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/information/shoppingCart/shoppingCart",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/information/remind/remind",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }

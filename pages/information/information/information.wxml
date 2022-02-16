@@ -45,13 +45,16 @@
 
   <view class="service-bar">
     <view class="service-bar-item">
-      <view class="iconfont icon-lianxing"></view>
+      <view bindtap="face" class="iconfont icon-lianxing"></view>
       脸型识别
     </view>
     <view bindtap="toShoppingCart" class="service-bar-item">
       <view class="iconfont icon-31gouwuche"></view>
-
       购物车
+    </view>
+    <view bindtap="setReminded" class="service-bar-item">
+      <view class="iconfont icon-tixing"></view>
+      定期提醒
     </view>
   </view>
 </view>

@@ -13,7 +13,7 @@ const HTTP = {
     // 登录口
     loginApi(params) {
         return requestFn.Request({
-            url: API.login,
+            url: `/wx/user/${appid}/auth?nickName=${params.nickName}&openid=${params.openid}`,
             data: params
         })
     },
@@ -95,6 +95,48 @@ const HTTP = {
         return requestFn.Request({
             url: `/order/createOrder`,
             data: params
+        })
+    },
+    // 订单列表口
+    getOrderList(id) {
+        return requestFn.Request({
+            url: `/order/find/${id}`,
+            method: 'GET'
+        })
+    },
+    // 取消订单口
+    cancelOrder(orderId) {
+        return requestFn.Request({
+            url: `/order/del/${orderId}`,
+            method: 'DELETE'
+        })
+    },
+    // 支付接口
+    pay(orderId) {
+        return requestFn.Request({
+            url: `/order/successpay/${orderId}`,
+            method: 'PUT'
+        })
+    },
+    // 设置定时提醒接口
+    setRemind(userId, params) {
+        return requestFn.Request({
+            url: `/remind/setRemind/${userId}`,
+            data: params
+        })
+    },
+    // 获取定时任务接口
+    getRemind(userId) {
+        return requestFn.Request({
+            url: `/remind/find/${userId}`,
+            method: 'GET'
+        })
+    },
+    // 删除定时任务接口
+    delRemind(remindId) {
+        return requestFn.Request({
+            url: `/remind/del/${remindId}`,
+            method: 'DELETE'
         })
     }
 }

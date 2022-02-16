@@ -1,6 +1,6 @@
 <!--pages/order/order/order.wxml-->
 <view class="appointment">
-    <image class="banner" src="/img/appointment-banner.png"></image>
+    <image class="banner" src="https://my-study-test-bucket1234.oss-cn-guangzhou.aliyuncs.com/images/2022/02/16/5a18ca8f-4807-4316-b7e6-37d2d015bab6.png"></image>
     <view class="store-information">
         <view class="address">
             <text>营业时间：周一至周日 11:00~21:00</text>
@@ -13,13 +13,13 @@
 
     <view wx:for="{{barberList}}" wx:key='id' class="barber">
         <view class="barber-information" data-id="{{item.id}}" bindtap="toBarberInfo">
-            <image class="barber-avatar" src="/img/barber.jpg"></image>
+            <image class="barber-avatar" src="{{item.pic}}"></image>
 
             <text class="barber-name">{{item.name}}</text>
         </view>
         <view style="display: flex; flex-direction: column;">
-            <van-button class="barber-btn" data-id="{{item.id}}" bindtap="appointment" round color="#403737">预约</van-button>
-            <text style="font-size: 24rpx;margin-top: 10rpx;">剩余可预约1</text>
+            <van-button disabled="{{item.subscribeNum===0?true:false}}" class="barber-btn" data-id="{{item.id}}" bindtap="appointment" round color="#403737">{{item.subscribeNum===0?'不可预约':'预约'}}</van-button>
+            <text style="font-size: 24rpx;margin-top: 10rpx; text-align: center;">剩余可预约{{item.subscribeNum}}</text>
         </view>
 
     </view>

@@ -1,8 +1,88 @@
+<van-overlay z-index="999" show="{{ show }}" bind:click="onClickHide">
+    <view class="wrapper">
+        <view style="position: fixed; bottom: 0;box-sizing: border-box;">
+            <view class="pay">
+                <text>微信支付</text>
+
+                <text>{{needPay}}元</text>
+            </view>
+
+            <button type="primary" bindtap="pay" style="width:750rpx">确认支付</button>
+        </view>
+
+    </view>
+</van-overlay>
 <van-tabs color="#000" animated sticky active="{{ active }}">
-    <van-tab title="全部">内容 1</van-tab>
-    <van-tab title="待付款">内容 1</van-tab>
-    <van-tab title="待消费">内容 2</van-tab>
-    <van-tab title="待发货">内容 3</van-tab>
-    <van-tab title="待收货">内容 4</van-tab>
-    <van-tab title="待评价">内容 4</van-tab>
+    <van-tab class="state-item" title="全部">
+        <view style="text-align: center;" wx:if="{{orderList.length===0}}">
+            还没有订单，去逛逛吧
+
+        </view>
+        <view wx:else>
+            <view class="orderItem" wx:for="{{orderList}}" wx:key="index">
+
+                <van-card price="{{item.price}}" title="订单编号：{{item.id}}">
+                    <view slot="desc">
+                        <view>商品：<text wx:for="{{item.productVoList}}" wx:for-item="cell" wx:key="index">
+                                <text>{{cell.product.name}}</text>
+                                <text style="margin:0 10rpx;">x{{cell.num}}</text>
+                            </text>
+                        </view>
+                        <view>状态：{{item.status==='0'?'待付款':'已付款'}}</view>
+                    </view>
+                    <view slot="footer">
+                        <van-button wx:if="{{item.status==='0'}}" color="green" bindtap="show" data-needPay="{{item.price}}" data-orderId="{{item.id}}" size="mini">支付</van-button>
+                        <van-button bindtap="cancerOrder" data-orderId="{{item.id}}" size="mini">取消订单</van-button>
+                    </view>
+                </van-card>
+            </view>
+        </view>
+    </van-tab>
+    <van-tab class="state-item" title="待付款">
+        <view style="text-align: center;" wx:if="{{notPayingOrderList.length===0}}">
+            还没有订单，去逛逛吧
+        </view>
+        <view wx:else>
+            <view wx:for="{{notPayingOrderList}}" wx:key="index">
+
+                <van-card price="{{item.price}}" title="订单编号：{{item.id}}">
+                    <view slot="desc">
+                        <view>商品：<text wx:for="{{item.productVoList}}" wx:for-item="cell" wx:key="index">
+                                <text>{{cell.product.name}}</text>
+                                <text style="margin:0 10rpx;">x{{cell.num}}</text>
+                            </text>
+                        </view>
+                        <view>状态：{{item.status==='0'?'待付款':'已付款'}}</view>
+                    </view>
+                    <view slot="footer">
+                        <van-button color="green" bindtap="show" data-needPay="{{item.price}}" data-orderId="{{item.id}}" size="mini">支付</van-button>
+                        <van-button bindtap="cancerOrder" data-orderId="{{item.id}}" size="mini">取消订单</van-button>
+                    </view>
+                </van-card>
+            </view>
+        </view>
+    </van-tab>
+    <van-tab class="state-item" title="已付款">
+        <view style="text-align: center;" wx:if="{{finishOrderList.length===0}}">
+            还没有订单，去逛逛吧
+        </view>
+        <view wx:else>
+            <view wx:for="{{finishOrderList}}" wx:key="index">
+
+                <van-card price="{{item.price}}" title="订单编号：{{item.id}}">
+                    <view slot="desc">
+                        <view>商品：<text wx:for="{{item.productVoList}}" wx:for-item="cell" wx:key="index">
+                                <text>{{cell.product.name}}</text>
+                                <text style="margin:0 10rpx;">x{{cell.num}}</text>
+                            </text>
+                        </view>
+                        <view>状态：{{item.status==='0'?'待付款':'已付款'}}</view>
+                    </view>
+                </van-card>
+            </view>
+        </view>
+    </van-tab>
+    <van-tab class="state-item" title="待发货">暂无数据</van-tab>
+    <van-tab class="state-item" title="待收货">暂无数据</van-tab>
+    <van-tab class="state-item" title="待评价">暂无数据</van-tab>
 </van-tabs>

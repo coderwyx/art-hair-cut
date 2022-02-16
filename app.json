@@ -11,7 +11,8 @@
         "pages/information/userInfo/userInfo",
         "pages/information/shoppingCart/shoppingCart",
         "pages/information/appointment/appointment",
-        "pages/discovery/productOrder/productOrder"
+        "pages/discovery/productOrder/productOrder",
+        "pages/information/remind/remind"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -53,6 +54,8 @@
         "van-card": "@vant/weapp/card/index",
         "van-submit-bar": "@vant/weapp/submit-bar/index",
         "van-checkbox": "@vant/weapp/checkbox/index",
-        "van-checkbox-group": "@vant/weapp/checkbox-group/index"
+        "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+        "van-picker": "@vant/weapp/picker/index",
+        "van-datetime-picker": "@vant/weapp/datetime-picker/index"
     }
 }

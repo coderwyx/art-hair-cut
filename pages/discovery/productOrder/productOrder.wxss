@@ -1,2 +1,17 @@
 /* pages/discovery/productOrder/productOrder.wxss */
 
+.pay {
+    display: flex;
+    height: 200rpx;
+    background-color: #fff;
+    text-align: center;
+    justify-content: center;
+    line-height: 200rpx;
+    margin-top: auto 0rpx;
+}
+
+.pay text {
+    font-size: 40rpx;
+    font-weight: bold;
+    width: 100%;
+}

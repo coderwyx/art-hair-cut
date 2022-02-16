@@ -79,7 +79,17 @@ Page({
     appointment(e) {
         const id = this.data.barberInfo.id
         const userid = wx.getStorageSync('userid')
-
+        if (!userid) {
+            return wx.showToast({
+                title: '请先登录',
+                icon: 'error'
+            })
+        } else if (this.data.barberInfo.subscribeNum === 0) {
+            return wx.showToast({
+                title: '预约已满',
+                icon: 'error'
+            })
+        }
         HTTP.appointmentBarber({
             userId: userid,
             hairdresserId: id
@@ -88,7 +98,7 @@ Page({
             wx.showToast({
                 title: res,
             });
-        
+
             setTimeout(function () {
                 wx.navigateBack({
                     delta: 1,

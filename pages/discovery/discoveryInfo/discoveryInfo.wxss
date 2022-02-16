@@ -36,6 +36,7 @@ page {
     align-items: center;
     text-align: center;
     box-sizing: border-box;
+    background-color: #fff;
 }
 .wrapper{
     background-color: #fff;

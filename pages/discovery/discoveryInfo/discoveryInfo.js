@@ -93,6 +93,7 @@ Page({
     },
     // 加入购物车
     addProduct() {
+       
         this.setData({
             show: false
         });
@@ -144,6 +145,13 @@ Page({
         console.log(this.data.productInfo.count)
     },
     buyNow() {
+        const userid = wx.getStorageSync('userid')
+        if (!userid) {
+            return wx.showToast({
+                title: '请先登录',
+                icon: 'error'
+            })
+        }
         const productInfo = JSON.stringify(this.data.productInfo)
         const count = this.data.count
         wx.navigateTo({

@@ -11,7 +11,9 @@ Page({
 
         },
         count: 0,
-        total: 0
+        total: 0,
+        show: false,
+        orderId: ''
     },
 
     /**
@@ -87,9 +89,26 @@ Page({
             count: this.data.count
         }).then(res => {
             console.log(res)
-            wx.showToast({
-              title: '',
+            this.setData({
+                show: true,
+                orderId: res.id
             })
+        }).catch(err => {
+            console.log(err)
+        })
+    },
+    pay() {
+        HTTP.pay(this.data.orderId).then(res => {
+            console.log(res)
+            wx.showToast({
+                title: res
+            })
+            setTimeout(function () {
+                wx.navigateBack({
+                    delta: 1,
+                })
+            }, 1500)
+
         }).catch(err => {
             console.log(err)
         })

@@ -8,7 +8,9 @@ Page({
      */
     data: {
         shoppingCartList: [],
-        total: 0
+        total: 0,
+        show: false,
+        orderId: ''
     },
 
     /**
@@ -119,6 +121,21 @@ Page({
         })
     },
     onSubmit() {
+        const userid = wx.getStorageSync('userid')
+        if (!userid) {
+            return wx.showToast({
+                title: '请先登录',
+                icon: 'error'
+            })
+        }
+        if (this.data.shoppingCartList.length === 0) {
+            wx.showToast({
+                title: '还没有添加商品~',
+                icon: 'error'
+            })
+            return
+        }
+
         const productIds = this.data.shoppingCartList.filter(item => {
             return item.isCheck;
         }).map(item => {
@@ -129,14 +146,35 @@ Page({
         }).map(item => {
             return item.count
         }).join(",")
-        const useid = wx.getStorageSync('userid')
         console.log(productIds);
         HTTP.addProductOrder({
-            userId: useid,
+            userId: userid,
             productIds: productIds,
             count: count
         }).then(res => {
             console.log(res)
+
+            this.setData({
+                show: true,
+                orderId: res.id
+            });
+        }).catch(err => {
+            console.log(err)
+        })
+    },
+
+    pay() {
+        HTTP.pay(this.data.orderId).then(res => {
+            console.log(res)
+            wx.showToast({
+                title: res
+            })
+            setTimeout(function () {
+                wx.navigateBack({
+                    delta: 1,
+                })
+            },1500)
+
         }).catch(err => {
             console.log(err)
         })

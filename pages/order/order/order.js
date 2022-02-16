@@ -89,14 +89,21 @@ Page({
         })
     },
     appointment(e) {
+
         const id = e.currentTarget.dataset.id
         const userid = wx.getStorageSync('userid')
-
+        if (!userid) {
+            return wx.showToast({
+                title: '请先登录',
+                icon: 'error'
+            })
+        }
         HTTP.appointmentBarber({
             userId: userid,
             hairdresserId: id
         }).then(res => {
             wx.showToast({
+                icon: 'none',
                 title: res,
             })
             this.getBarberList()

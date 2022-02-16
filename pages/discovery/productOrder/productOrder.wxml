@@ -1,5 +1,19 @@
 <!--pages/discovery/productOrder/productOrder.wxml-->
 <view>
+    <van-overlay z-index="999" show="{{ show }}" bind:click="onClickHide">
+        <view class="wrapper">
+            <view style="position: fixed; bottom: 0;box-sizing: border-box;">
+                <view class="pay">
+                    <text>微信支付</text>
+
+                    <text>{{total/100}}元</text>
+                </view>
+
+                <button type="primary" bindtap="pay" style="width:750rpx">确认支付</button>
+            </view>
+
+        </view>
+    </van-overlay>
     <van-card num="{{count}}" price="{{orderInfo.price}}" title="{{orderInfo.name}}" thumb="{{ orderInfo.img }}" />
     <view style="display: flex;justify-content: space-between;padding: 20rpx 30rpx;">
         <text>配送方式</text>

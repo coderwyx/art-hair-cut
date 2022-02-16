@@ -1,7 +1,7 @@
 // pages/info/info.js
-var checkPhone = /^1[3-9][0-9]{9}$/;
-const app = getApp();
+const checkPhone = /^1[3-9][0-9]{9}$/;
 import HTTP from '../../../utils/requestFn/api'
+
 
 Page({
 
@@ -21,7 +21,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        const userid = app.globalData.userid;
+        const app = getApp();
+        const userid = wx.getStorageSync('userid');
         HTTP.getUserInfo(userid).then(res => {
             console.log("成功获取用户信息", res)
             const {
@@ -127,13 +128,22 @@ Page({
             phone,
             gender
         } = this.data;
-        const userid = app.globalData.userid;
+        if (phone != '' && !checkPhone.test(phone)) {
+            wx.showToast({
+                icon: "error",
+                title: '手机号格式有误'
+            })
+            return
+        }
+        const userid = wx.getStorageSync('userid');
         HTTP.changeUserInfo({
             id: userid,
             name: name,
             tel: phone,
             sex: gender
         }).then(res => {
+            wx.setStorageSync('phone', phone)
+
             wx.showToast({
                 title: '保存成功',
             })
@@ -147,59 +157,7 @@ Page({
                 title: '修改失败，请稍后再试',
             })
         })
-        // if (name == "" && phone == "" && this.data.gender == "" && this.data.birthday == "") {
-        //     wx.navigateBack({
-        //         delta: 1,
-        //     })
-        // }
-        // if (name != "") {
-        //     users.doc(this.data.id)
-        //         .update({
-        //             data: {
-        //                 name: name,
-        //             }
-        //         })
-        // }
-        // if (phone != "" && !checkPhone.test(phone)) {
-        //     wx.showToast({
-        //         icon: "none",
-        //         title: '手机号格式有误',
-        //     })
-        //     return
-        // }
-        // if (phone != "") {
 
-        //     users.doc(this.data.id)
-        //         .update({
-        //             data: {
-        //                 phone: phone,
-        //             }
-        //         })
-        // }
-        // if (this.data.gender != "") {
-        //     users.doc(this.data.id)
-        //         .update({
-        //             data: {
-        //                 gender: this.data.gender,
-        //             }
-        //         })
-        // }
-        // if (this.data.birthday != "") {
-        //     users.doc(this.data.id)
-        //         .update({
-        //             data: {
-        //                 birthday: this.data.birthday,
-        //             }
-        //         })
-        // }
-        // wx.showToast({
-        //     title: '保存成功',
-        // })
-        // setTimeout(function () {
-        //     wx.navigateBack({
-        //         delta: 1,
-        //     })
-        // }, 1500)
 
     }
 })

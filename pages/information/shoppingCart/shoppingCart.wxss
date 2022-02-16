@@ -3,12 +3,41 @@
     display: flex;
     align-content: center;
 }
+
 .card {
     flex: 1;
 }
+
 .checkbox {
     width: 80rpx;
     display: flex;
     margin-left: 35rpx;
     text-align: center;
+}
+
+.wrapper {
+    height: 100% !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.van-submit-bar {
+    z-index: 10;
+}
+
+.pay {
+    display: flex;
+    height: 200rpx;
+    background-color: #fff;
+    text-align: center;
+    justify-content: center;
+    line-height: 200rpx;
+    margin-top: auto 0rpx;
+}
+
+.pay text {
+    font-size: 40rpx;
+    font-weight: bold;
+    width: 100%;
 }
