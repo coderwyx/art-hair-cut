@@ -108,7 +108,7 @@ const HTTP = {
     cancelOrder(orderId) {
         return requestFn.Request({
             url: `/order/del/${orderId}`,
-            method: 'DELETE'
+            method: 'POST'
         })
     },
     // 支付接口
@@ -136,7 +136,7 @@ const HTTP = {
     delRemind(remindId) {
         return requestFn.Request({
             url: `/remind/del/${remindId}`,
-            method: 'DELETE'
+            method: 'POST'
         })
     }
 }

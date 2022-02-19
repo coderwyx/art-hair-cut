@@ -32,7 +32,7 @@
                     </view>
                     <view slot="footer">
                         <van-button wx:if="{{item.status==='0'}}" color="green" bindtap="show" data-needPay="{{item.price}}" data-orderId="{{item.id}}" size="mini">支付</van-button>
-                        <van-button bindtap="cancerOrder" data-orderId="{{item.id}}" size="mini">取消订单</van-button>
+                        <van-button wx:if="{{item.status==='0'}}" bindtap="cancerOrder" data-orderId="{{item.id}}" size="mini">取消订单</van-button>
                     </view>
                 </van-card>
             </view>

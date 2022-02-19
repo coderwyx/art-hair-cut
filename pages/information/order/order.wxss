@@ -4,7 +4,7 @@
 }
 
 .orderItem {
-    margin: 10rpx 15rpx;
+    margin: 20rpx 15rpx;
 }
 
 .pay {

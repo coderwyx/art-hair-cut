@@ -30,6 +30,7 @@ Page({
                 sex,
                 tel
             } = res
+            wx.setStorageSync('phone', tel)
             this.setData({
                 name: name,
                 phone: tel,
